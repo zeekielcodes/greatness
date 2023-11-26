@@ -1,20 +1,34 @@
-import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { StatusBar } from "expo-status-bar";
+import { ActivityIndicator, Text, View } from "react-native";
+import { useFonts } from "expo-font";
+import Welcome from "./screens/Welcome";
+import { useState } from "react";
+import Main from "./screens/Main";
+import { NavigationContainer } from "@react-navigation/native";
+import { AppContextProvider } from "./components/Context";
 
 export default function App() {
+  const [preview, setPreview] = useState(true);
+  const [fontsLoaded] = useFonts({
+    PoppinsLight: require("./assets/fonts/Poppins-Light.ttf"),
+    PoppinsMedium: require("./assets/fonts/Poppins-Medium.ttf"),
+    PoppinsRegular: require("./assets/fonts/Poppins-Regular.ttf"),
+  });
+
+  if (!fontsLoaded) {
+    return (
+      <View className="flex-1 justify-center items-center">
+        <ActivityIndicator size={"large"} />
+      </View>
+    );
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <AppContextProvider>
+      <NavigationContainer>
+        {preview ? <Welcome setPreview={setPreview} /> : <Main />}
+        <StatusBar style="auto" />
+      </NavigationContainer>
+    </AppContextProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
