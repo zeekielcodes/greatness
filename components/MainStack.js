@@ -11,15 +11,15 @@ export default function MainStack() {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="CheckRhetoric"
+        name="TabNav"
         component={TabNav}
         options={{
-          title: "Check Rhetoric",
+          title: "TabNav",
           headerStyle: {
             backgroundColor: "#3B82F6",
           },
           headerTintColor: "#fff",
-          headerShown: true,
+          headerShown: false,
           headerTitleStyle: {
             fontWeight: "bold",
             className: "font-poppinsMedium",

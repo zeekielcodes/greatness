@@ -39,14 +39,14 @@ export default function TabNav() {
     >
       <Tab.Screen
         name="Home"
-        component={MainStack}
+        component={CheckRhetoric}
         options={{
           headerShown: true,
           headerStyle: {
             backgroundColor: "#3B82F6",
           },
           headerTintColor: "#fff",
-          headerShown: false,
+          headerShown: true,
           title: "Home",
           // headerRight: () => (
           //   <Button
