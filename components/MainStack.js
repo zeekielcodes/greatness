@@ -3,6 +3,7 @@ import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import CheckRhetoric from "../screens/CheckRhetoric";
 import ViewResult from "../screens/ViewResult";
+import TabNav from "./TabNav";
 
 export default function MainStack() {
   const Stack = createNativeStackNavigator();
@@ -11,7 +12,7 @@ export default function MainStack() {
     <Stack.Navigator>
       <Stack.Screen
         name="CheckRhetoric"
-        component={CheckRhetoric}
+        component={TabNav}
         options={{
           title: "Check Rhetoric",
           headerStyle: {
