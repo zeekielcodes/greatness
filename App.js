@@ -27,7 +27,7 @@ export default function App() {
     <AppContextProvider>
       <NavigationContainer>
         {preview ? <Welcome setPreview={setPreview} /> : <Main />}
-        <StatusBar style="auto" />
+        <StatusBar style="light" />
       </NavigationContainer>
     </AppContextProvider>
   );

@@ -21,18 +21,5 @@ export default function HistoryList() {
       }
       className="p-2"
     />
-    // <>
-    //   {recentlyChecked.length > 0 ? (
-    //     <ScrollView>
-    //       {recentlyChecked.map((item) => (
-    //         <RecentChecks item={item} />
-    //       ))}
-    //     </ScrollView>
-    //   ) : (
-    //     <View className="flex-1 justify-center items-center">
-    //       <Text className="text-2xl font-poppinsMedium">No recent history</Text>
-    //     </View>
-    //   )}
-    // </>
   );
 }

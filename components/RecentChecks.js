@@ -7,10 +7,12 @@ export default function RecentChecks({ item }) {
   return (
     <TouchableOpacity
       onLongPress={() => Alert.alert("Long Pressed")}
-      onPress={() => navigation.navigate("ViewResult")}
+      onPress={() => navigation.navigate("ViewResult", { data: item })}
     >
       <View>
-        <Text className="font-poppinsRegular text-base">{item}</Text>
+        <Text className="font-poppinsRegular text-base" numberOfLines={4}>
+          {item.input}
+        </Text>
       </View>
     </TouchableOpacity>
   );

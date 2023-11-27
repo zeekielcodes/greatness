@@ -15,9 +15,11 @@ export default function CheckRhetoric({ navigation }) {
   const getAnswers = () => {
     setLoading(true);
     // Make the API call
-    const newData = [...recentlyChecked, input];
+    const data = { input, response: "My name is The Face" };
+    const newData = [...recentlyChecked, data];
     updateRecentlyChecked(newData);
-    navigation.navigate("ViewResult");
+    navigation.navigate("ViewResult", { data });
+    setInput("");
     setLoading(false);
   };
   return (
@@ -29,10 +31,12 @@ export default function CheckRhetoric({ navigation }) {
       <TextInput
         placeholder=""
         multiline={true}
+        value={input}
         onChangeText={(e) => setInput(e)}
         className="h-[300px] p-4 w-[300px] font-poppinsLight my-4 text-md border-2 border-blue-500"
       />
       <TouchableOpacity
+        disabled={input.length < 1}
         className="bg-blue-500 rounded-md px-6 py-2"
         onPress={getAnswers}
       >
