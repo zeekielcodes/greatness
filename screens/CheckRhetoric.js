@@ -15,7 +15,11 @@ export default function CheckRhetoric({ navigation }) {
   const getAnswers = () => {
     setLoading(true);
     // Make the API call
-    const data = { input, response: "My name is The Face" };
+    const data = {
+      id: new Date().getTime(),
+      input,
+      response: "My name is The Face",
+    };
     const newData = [...recentlyChecked, data];
     updateRecentlyChecked(newData);
     navigation.navigate("ViewResult", { data });

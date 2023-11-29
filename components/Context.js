@@ -14,7 +14,7 @@ export const AppContextProvider = ({ children }) => {
   const loadDataFromStorage = async () => {
     try {
       const storedData = await AsyncStorage.getItem(
-        "@Rhetoric:recentlyChecked"
+        "@Greatness:recentlyChecked"
       );
       if (storedData) {
         setRecentlyChecked(JSON.parse(storedData));
@@ -31,7 +31,7 @@ export const AppContextProvider = ({ children }) => {
 
       // Save the updated data to AsyncStorage
       await AsyncStorage.setItem(
-        "@Rhetoric:recentlyChecked",
+        "@Greatness:recentlyChecked",
         JSON.stringify(newData)
       );
     } catch (error) {
