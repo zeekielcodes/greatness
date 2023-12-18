@@ -1,7 +1,6 @@
 import { View, Text } from "react-native";
 import React from "react";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import CheckRhetoric from "../screens/CheckRhetoric";
 import ViewResult from "../screens/ViewResult";
 import TabNav from "./TabNav";
 
@@ -30,7 +29,7 @@ export default function MainStack() {
         name="ViewResult"
         component={ViewResult}
         options={{
-          title: "Rhetoric questions",
+          title: "Rhetoric Check",
           headerStyle: {
             backgroundColor: "#3B82F6",
           },

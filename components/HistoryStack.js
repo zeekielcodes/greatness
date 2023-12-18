@@ -8,7 +8,7 @@ export default function HistoryStack() {
   return (
     <Stack.Navigator>
       <Stack.Screen
-        name="History"
+        name="HistoryList"
         component={HistoryList}
         options={{
           title: "Recent",

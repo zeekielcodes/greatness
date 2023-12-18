@@ -10,13 +10,12 @@ export default function RecentChecks({ item }) {
     Alert.alert("Delete", "Are you sure you want to delete this?", [
       {
         text: "Cancel",
-        onPress: () => console.log("Cancel Pressed"),
+        onPress: () => {},
         style: "cancel",
       },
       {
         text: "OK",
         onPress: () => {
-          console.log("OK Pressed");
           const afterDelete = recentlyChecked.filter(
             (check) => check.id !== item.id
           );
@@ -28,7 +27,7 @@ export default function RecentChecks({ item }) {
   return (
     <TouchableOpacity
       onLongPress={deleteCheck}
-      onPress={() => navigation.navigate("ViewResult", { data: item })}
+      onPress={() => navigation.navigate("ViewResult", { check: item })}
     >
       <View>
         <Text className="font-poppinsRegular text-base" numberOfLines={4}>

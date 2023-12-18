@@ -2,10 +2,8 @@ import { View, Text } from "react-native";
 import React from "react";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import Ionicons from "react-native-vector-icons/Ionicons";
-import Main from "../screens/Main";
 import CheckRhetoric from "../screens/CheckRhetoric";
 import HistoryStack from "./HistoryStack";
-import MainStack from "./MainStack";
 
 export default function TabNav() {
   const Tab = createBottomTabNavigator();
@@ -48,13 +46,6 @@ export default function TabNav() {
           headerTintColor: "#fff",
           headerShown: true,
           title: "Home",
-          // headerRight: () => (
-          //   <Button
-          //     onPress={() => alert("This is a test button!")}
-          //     title="Info"
-          //     color="red"
-          //   />
-          // ),
           headerTitleStyle: {
             fontWeight: "bold",
           },

@@ -12,32 +12,43 @@ export default function CheckRhetoric({ navigation }) {
   const [loading, setLoading] = useState(false);
   const [input, setInput] = useState("");
   const { recentlyChecked, updateRecentlyChecked } = useContext(AppContext);
-  const getAnswers = () => {
+  const getAnswers = async () => {
     setLoading(true);
+
     // Make the API call
-    const data = {
+    const response = await fetch("https://great-app.onrender.com/predict", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({ input }),
+    });
+
+    const data = await response.json();
+    setLoading(false);
+    const formattedPrediction = data.prediction.replace(/[\\"\s]/g, "");
+    const check = {
       id: new Date().getTime(),
       input,
-      response: "My name is The Face",
+      response: formattedPrediction,
     };
-    const newData = [...recentlyChecked, data];
+    const newData = [...recentlyChecked, check];
     updateRecentlyChecked(newData);
-    navigation.navigate("ViewResult", { data });
+    navigation.navigate("ViewResult", { check });
+
     setInput("");
-    setLoading(false);
   };
   return (
     <View className="flex-1 p-6 items-center">
       <Text className="font-poppinsRegular text-center text-xl">
-        Input passage in input field below to check for rhetoric questions in
-        the passage.
+        Input question in input field below to check if it is rhetoric or not.
       </Text>
       <TextInput
-        placeholder=""
+        placeholder="Enter a question"
         multiline={true}
         value={input}
         onChangeText={(e) => setInput(e)}
-        className="h-[300px] p-4 w-[300px] font-poppinsLight my-4 text-md border-2 border-blue-500"
+        className="h-[60px] p-4 w-[300px] font-poppinsLight my-4 text-md border-2 border-blue-500"
       />
       <TouchableOpacity
         disabled={input.length < 1}
